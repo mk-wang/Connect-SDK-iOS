@@ -116,8 +116,19 @@ Pod::Spec.new do |s|
     cast_version = "2.7.1"
     sp.dependency "google-cast-sdk", cast_version
     sp.framework = "GoogleCast"
-    sp.xcconfig = {
-        "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/google-cast-sdk/GoogleCastSDK-#{cast_version}-Release",
-    }
+    sp.pod_target_xcconfig = {
+      "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/google-cast-sdk/GoogleCastSDK-#{cast_version}-Release",
+    }    
+  end
+  
+  s.subspec 'FireTV' do |sp|
+    cast_dir = "modules/firetv"
+    
+    sp.dependency 'ConnectSDK/Core'
+    sp.source_files = "#{cast_dir}/Capabilities/*.{h,m}", "#{cast_dir}/Discovery/*.{h,m}", "#{cast_dir}/*.{h,m}"
+    sp.private_header_files = "#{cast_dir}/**/*_Private.h"
+    sp.vendored_frameworks = "#{cast_dir}/Frameworks/*.framework"
+    sp.frameworks = 'AdSupport', 'CFNetwork', 'Security', 'SystemConfiguration', 'WebKit'
+    sp.libraries = 'c++'
   end
 end
