@@ -111,7 +111,7 @@ Pod::Spec.new do |s|
     sp.dependency 'ConnectSDK/Core'
     sp.source_files = "#{cast_dir}/**/*.{h,m}"
     sp.exclude_files = "#{cast_dir}/*Tests/**/*"
-    sp.private_header_files = "#{cast_dir}/**/*_Private.h"
+    sp.private_header_files = "#{cast_dir}/**/*_Private.h", "#{cast_dir}/**/CastServiceChannel.h"
 
     cast_version = "2.7.1"
     sp.dependency "google-cast-sdk", cast_version
