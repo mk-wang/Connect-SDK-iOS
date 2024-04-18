@@ -129,6 +129,7 @@ Pod::Spec.new do |s|
     sp.private_header_files = "#{cast_dir}/**/*_Private.h"
     sp.vendored_frameworks = "#{cast_dir}/Frameworks/*.framework"
     sp.frameworks = 'AdSupport', 'CFNetwork', 'Security', 'SystemConfiguration', 'WebKit'
+    sp.dependency "Bolts"
     sp.libraries = 'c++'
   end
 end
