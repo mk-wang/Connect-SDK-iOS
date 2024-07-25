@@ -127,9 +127,8 @@ Pod::Spec.new do |s|
     sp.dependency 'ConnectSDK/Core'
     sp.source_files = "#{cast_dir}/Capabilities/*.{h,m}", "#{cast_dir}/Discovery/*.{h,m}", "#{cast_dir}/*.{h,m}"
     sp.private_header_files = "#{cast_dir}/**/*_Private.h"
-    sp.vendored_frameworks = "#{cast_dir}/Frameworks/*.framework"
+    sp.vendored_frameworks = "#{cast_dir}/Frameworks/*.xcframework"
     sp.frameworks = 'AdSupport', 'CFNetwork', 'Security', 'SystemConfiguration', 'WebKit'
-    sp.dependency "Bolts"
     sp.libraries = 'c++'
   end
 end
